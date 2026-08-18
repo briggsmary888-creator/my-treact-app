@@ -1,35 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html >
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My React App</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="index.css">
 </head>
-<main>
-    <div id="root">
- <img class="customers-logo-strip" alt="Customers Logo">
- </div>
-</main>
-       <script>
+<body>
+    <img src="hero-screenshot-1.40a097b525c2f8c9808e.png" alt="Hero Screenshot 1 Icon"
+    <img src="customers-logo-strip.680ac7c2e8ae28161d2c.png" alt="Customers Logo"
+  <div id="toolbar-placeholder">
+    <!--
+      Placeholder toolbar with loading progress until full UI is available. 
+      Since progress bar is rendered as part of React based PDF UI which is
+      deferred when `msPdfLoadUIAfterRender` is enabled, this placedholder UI
+      will be used instead.
+    -->
+    <div role="toolbar" aria-label="PDF bar">
+      <div class="progress" role="progressbar" aria-valuenow="0"
+        aria-valuemin="0" aria-valuemax="100">
+        <div class="progress_valueIndicator"></div>
+      </div>
+    </div>
+  </div>
+  <!-- the contents of ui-container are react-based PDF UI components -->
+  <div id="ui-container"></div>
 
+  <!-- This is container div for the currently open modal if exists -->
+  <div id="modal-root"></div>
 
-       (function() {
+  <div id="sizer"></div>
 
+  <div id="document-container">
+    <div id="embed-border"></div>
+  </div>
 
+</body>
+<script src="dist/pdf_loader.bundle.js"></script>
 
+<template id="pdf-bundle-chunks">
+<script src="dist/lib_fast_deprecated.chunk.js"></script>
+<script src="dist/lib_fast_web_components.chunk.js"></script>
+<script src="dist/lib_react.chunk.js"></script>
+</template>
+<embed id="pdf-embed" type="application/x-google-chrome-pdf" src="chrome-extension://mhjfbmdgcfjbbpaeojofohoefgiehjai/42d0b3ac-5511-4059-b69a-d8bebf7c16c0" original-url="file:///C:/Users/Student/Downloads/TReact%20(1).pdf" background-color="4281545523" embed-top-offset="41" javascript="allow" full-frame="" pdfdigsigpolicyenabled="" pdffreetextenabled="" pdfviewrecoveryenabled="" pdfoopifscrollbarenabled="" pdfscrollingonmainthread="" stream_timestamp="40937347543" first-page-separator="4" class="absolute-embed" height="11192" width="1039">
+<template id="pdf-ui-bundle">
+<script src="dist/pdf_react_ui.bundle.js"></script>
+</template>
 
-
-
-
-    </header>
-    
-   alt="Prototype Illustrations Icon">
-     
-    <footer>
-        <!-- Footer Logo-->
-        <img src="logo.svg" alt="Company Logo" class="footer-logo">
-        <!-- Footer Text-->
-        <p>© 2026 briggsmary888, All rights reserved.</p>
-    </footer>
-    <script type="module" src="/src/main.jsx"></script><!-- Code inject-->
+<template id="pdf-bundle-template">
+<script src="dist/pdf.bundle.js"></script>
+</template>
+<footer>
+    <p> 2026 My React App. All rights reserved.</p>
+</footer>
+</body>
+</html>
